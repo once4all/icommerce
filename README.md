@@ -48,6 +48,13 @@ docker build -t icommerce-service:0.0.1 .
 docker run --name icommerce-service -p 8089:8089 -e spring.datasource.url=jdbc:postgresql://10.144.212.73:5432/icommerce?currentSchema=public -e spring.datasource.username=postgres -e spring.datasource.password=postgres  icommerce-service:0.0.1
 ~~~
 **Note:** use the correct db URL
+# Room for improvements
+In this project I could have improve many things 
+- Add a central configuration service
+- Add deployment infrastructure design
+- Using cache or elastic search to improve product searching
+- Add more unit tests 
+- ...
 
 # CURL commands
 Replace the url localhost:8089 to any other url that you started, the services require authentication in the header so please replace the ${token_param} with your access_token after login
