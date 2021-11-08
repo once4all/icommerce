@@ -1,0 +1,55 @@
+# Tomcat server configuration
+server:
+  port: 8089
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,application/javascript,text/css
+  tomcat:
+    max-threads: 50
+
+# actuator/info configuration
+info:
+  version: "@project.version@"
+  releaseDate: "@timestamp@"
+
+# logging
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{traceId}/%X{spanId}] [%X{tenantCode}] [%X{userName}] [%level] %logger{36} -> %M@%L - %msg%n"
+  level:
+    root: INFO
+
+spring:
+  servlet:
+    multipart:
+      max-request-size: 500MB
+      max-file-size: 500MB
+  profiles:
+    active: production, security-mock
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/icommerce?currentSchema=public}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+    properties:
+      hibernate:
+        schema: public
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        show_sql: true
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true # to solve https://github.com/spring-projects/spring-boot/issues/12007
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  messages:
+    basename.messages: messages
+
+security:
+  jwt:
+    secret: IC0mMercE@123# # Description: Define secret key for signing data in JWT token - Mandatory
+    validity-time: 3600000 # Description: Define period of time (in miliseconds) that a Jwt token will be expired - Mandatory
+    refresh-time: 2592000000 # Description: Define period of time (in miliseconds) that a refresh token will be expired - Mandatory
+
+

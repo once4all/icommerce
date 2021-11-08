@@ -1,0 +1,110 @@
+openapi: 3.0.1
+info:
+  title: ICommerce brand Service
+  version: 0.0.1
+servers:
+  - url: ''
+paths:
+  /common/brands:
+    get:
+      description: get all brands
+      operationId: getBrands
+      tags:
+        - brand
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandsGetResponse'
+
+  /common/colours:
+    get:
+      description: getAllColours
+      operationId: getColours
+      tags:
+        - colour
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ColoursGetResponse'
+
+  /common/categories:
+    get:
+      description: get all categories
+      operationId: getCategories
+      tags:
+        - category
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriesGetResponse'
+
+components:
+  schemas:
+    BrandsGetResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandDTO'
+
+
+    BrandDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+
+    ColoursGetResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColourDTO'
+
+    ColourDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+
+    CategoriesGetResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CategoryDTO'
+
+    CategoryDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: [ ]

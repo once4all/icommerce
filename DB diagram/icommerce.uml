@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>6bcc8cf1-b591-450b-a84a-4163b95d8e80.SCHEMA:icommerce.public</OriginalElement>
+  <nodes>
+    <node x="-29.0" y="1507.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.user_information</node>
+    <node x="238.5" y="1071.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.colour</node>
+    <node x="461.0" y="216.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product</node>
+    <node x="0.0" y="1038.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.booking_item</node>
+    <node x="203.5" y="471.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_brand</node>
+    <node x="-15.5" y="1289.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.booking</node>
+    <node x="198.5" y="671.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.brand</node>
+    <node x="166.5" y="60.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_attribute</node>
+    <node x="184.5" y="271.5">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_image</node>
+    <node x="758.5" y="71.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.category</node>
+    <node x="243.5" y="871.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_colour</node>
+    <node x="484.5" y="1311.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.cart</node>
+    <node x="760.5" y="271.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_category</node>
+    <node x="483.5" y="1049.0">6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.cart_item</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.booking" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.cart">
+      <point x="95.5" y="-0.0" />
+      <point x="-75.5" y="-0.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.cart_item" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.colour">
+      <point x="-76.5" y="-0.0" />
+      <point x="81.5" y="-0.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.cart_item" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product">
+      <point x="0.0" y="-71.0" />
+      <point x="0.0" y="104.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.booking" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.user_information">
+      <point x="0.0" y="71.0" />
+      <point x="0.0" y="-93.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_image" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product">
+      <point x="95.5" y="-0.0" />
+      <point x="-99.0" y="-0.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.cart_item" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.cart">
+      <point x="0.0" y="71.0" />
+      <point x="0.0" y="-49.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_brand" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.brand">
+      <point x="0.0" y="49.0" />
+      <point x="0.0" y="-49.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.cart" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.user_information">
+      <point x="0.0" y="49.0" />
+      <point x="560.0" y="1600.0" />
+      <point x="109.0" y="-0.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.booking_item" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.colour">
+      <point x="80.0" y="-0.0" />
+      <point x="-81.5" y="-0.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_colour" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.colour">
+      <point x="0.0" y="49.0" />
+      <point x="0.0" y="-49.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.booking_item" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product">
+      <point x="0.0" y="-82.0" />
+      <point x="80.0" y="0.0" />
+      <point x="560.0" y="0.0" />
+      <point x="0.0" y="-104.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_category" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product">
+      <point x="-79.5" y="-0.0" />
+      <point x="99.0" y="-0.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_colour" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product">
+      <point x="76.5" y="-0.0" />
+      <point x="520.0" y="920.0" />
+      <point x="-40.0" y="104.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_brand" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product">
+      <point x="76.5" y="-0.0" />
+      <point x="480.0" y="520.0" />
+      <point x="-80.0" y="104.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_attribute" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product">
+      <point x="113.5" y="-0.0" />
+      <point x="520.0" y="120.0" />
+      <point x="-40.0" y="-104.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.booking_item" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.booking">
+      <point x="0.0" y="82.0" />
+      <point x="0.0" y="-71.0" />
+    </edge>
+    <edge source="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.product_category" target="6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.category">
+      <point x="0.0" y="-49.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+  </edges>
+  <settings layout="Directed Orthogonal" zoom="0.44191476941039115" x="446.5" y="846.5" />
+  <SelectedNodes>
+    <node>6bcc8cf1-b591-450b-a84a-4163b95d8e80.TABLE:icommerce.public.cart_item</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

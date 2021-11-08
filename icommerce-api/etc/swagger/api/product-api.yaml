@@ -1,0 +1,121 @@
+openapi: 3.0.1
+info:
+  title: ICommerce colour Service
+  version: 0.0.1
+servers:
+  - url: ''
+paths:
+  /product:
+    get:
+      description: find product by criteria
+      operationId: findProduct
+      tags:
+        - product
+      parameters:
+        - name: keyword
+          in: query
+          required: false
+          style: form
+          schema:
+            type: string
+        - name: brands
+          in: query
+          required: false
+          style: simple
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+        - name: categories
+          in: query
+          required: false
+          style: simple
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+        - name: colours
+          in: query
+          required: false
+          style: simple
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+        - name: priceFrom
+          in: query
+          required: false
+          style: form
+          schema:
+            type: number
+            format: double
+        - name: priceTo
+          in: query
+          required: false
+          style: form
+          schema:
+            type: number
+            format: double
+
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsGetResponse'
+
+components:
+  schemas:
+    ProductsGetResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductDTO'
+
+    ProductDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: double
+        createdDate:
+          type: string
+          format: date-time
+        modifiedDate:
+          type: string
+          format: date-time
+        categories:
+          type: array
+          items:
+            $ref: './common-api.yaml#/components/schemas/CategoryDTO'
+        brands:
+          type: array
+          items:
+            $ref: './common-api.yaml#/components/schemas/BrandDTO'
+        colours:
+          type: array
+          items:
+            $ref: './common-api.yaml#/components/schemas/ColourDTO'
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: [ ]

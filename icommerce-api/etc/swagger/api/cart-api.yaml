@@ -1,0 +1,210 @@
+openapi: 3.0.1
+info:
+  title: ICommerce colour Service
+  version: 0.0.1
+servers:
+  - url: ''
+paths:
+  /cart:
+    get:
+      description: get current open cart.
+      operationId: getCurrentCart
+      tags:
+        - cart
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartGetResponse'
+
+  /cart/add-item:
+    post:
+      description: Add item to current cart.
+      operationId: addItemToCurrentCart
+      tags:
+        - cart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddItemRequest'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartGetResponse'
+
+  /cart/remove-item/{itemId}:
+    post:
+      description: remove item to current cart.
+      operationId: remove item from current cart
+      tags:
+        - cart
+      parameters:
+        - name: itemId
+          in: path
+          schema:
+            type: integer
+            format: int64
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveItemRequest'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartGetResponse'
+
+  /cart/checkout:
+    post:
+      description: checkout current cart.
+      operationId: checkoutCurrentCart
+      tags:
+        - cart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckoutCartRequest'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookingDTO'
+  /booking:
+    get:
+      description: get user's list bookings.
+      operationId: getListBooking
+      tags:
+        - cart
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookingGetResponse'
+
+components:
+  schemas:
+    CartGetResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/CartDTO'
+
+    CartDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        cartItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/CartItemDTO'
+
+    CartItemDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        product:
+          $ref: './product-api.yaml#/components/schemas/ProductDTO'
+        colours:
+          $ref: './common-api.yaml#/components/schemas/ColourDTO'
+        quantity:
+          type: integer
+
+    AddItemRequest:
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int64
+        colourId:
+          type: integer
+          format: int64
+        quantity:
+          type: integer
+          minimum: 1
+      required:
+        - productId
+
+
+    RemoveItemRequest:
+      type: object
+      properties:
+        quantity:
+          type: integer
+          minimum: 1
+
+    CheckoutCartRequest:
+      type: object
+      properties:
+        totalPrice:
+          type: number
+          format: double
+      required:
+        - totalPrice
+
+    BookingGetResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingDTO'
+
+    BookingDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        totalPrice:
+          type: number
+          format: double
+        createdDate:
+          type: string
+          format: date-time
+        bookingItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingItemDTO'
+
+    BookingItemDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        product:
+          $ref: './product-api.yaml#/components/schemas/ProductDTO'
+        colours:
+          $ref: './common-api.yaml#/components/schemas/ColourDTO'
+        quantity:
+          type: integer
+        totalPrice:
+          type: number
+          format: double
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: [ ]

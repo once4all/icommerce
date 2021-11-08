@@ -1,0 +1,15 @@
+spring:
+    application:
+        # Name of the service that is using with Spring Cloud config server and Eureka server
+        name: icommerce-service
+    profiles:
+        active: ${ENV_NAME:}
+    cloud:
+        config:
+            # Define the URL from where this service would pick up it's external configuration. Note that it is
+            # pointing to the config-server application
+            uri: ${CONFIG_SERVER_URL:http://localhost:8888}
+    datasource:
+        url: ${DB_URL:jdbc:postgresql://localhost:5432/icommerce?currentSchema=public}
+        username: ${DB_USERNAME:postgres}
+        password: ${DB_PASSWORD:postgres}

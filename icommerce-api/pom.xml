@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.icommerce</groupId>
+        <artifactId>icommerce-parent</artifactId>
+        <version>0.0.1</version>
+    </parent>
+
+    <artifactId>icommerce-api</artifactId>
+    <packaging>jar</packaging>
+    <name>ICommerce API</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- RESTful services -->
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+
+        <!-- HTTP client: jersey-client -->
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-multipart</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+        </dependency>
+
+        <!-- JSON processing: jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-joda</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.joschi.jackson</groupId>
+            <artifactId>jackson-datatype-threetenbp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.brsanthu</groupId>
+            <artifactId>migbase64</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>4.2.2</version>
+                <executions>
+                    <execution>
+                        <id>generate-common-api</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/etc/swagger/api/common-api.yaml</inputSpec>
+                            <output>${project.build.directory}/generated-sources/swagger</output>
+                            <modelPackage>com.icommerce.category.model</modelPackage>
+                            <generatorName>spring</generatorName>
+                            <addCompileSourceRoot>false</addCompileSourceRoot>
+                            <typeMappings>
+                                <typeMapping>OffsetDateTime=Instant</typeMapping>
+                                <typeMapping>BigDecimal=Long</typeMapping>
+                            </typeMappings>
+                            <importMappings>
+                                <importMapping>org.threeten.bp.OffsetDateTime=java.time.Instant</importMapping>
+                                <importMapping>java.time.OffsetDateTime=java.time.Instant</importMapping>
+                                <importMapping>import java.math.BigDecimal=java.lang.Long</importMapping>
+                            </importMappings>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-product-api</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/etc/swagger/api/product-api.yaml</inputSpec>
+                            <output>${project.build.directory}/generated-sources/swagger</output>
+                            <modelPackage>com.icommerce.category.model</modelPackage>
+                            <generatorName>spring</generatorName>
+                            <addCompileSourceRoot>false</addCompileSourceRoot>
+                            <typeMappings>
+                                <typeMapping>OffsetDateTime=Instant</typeMapping>
+                                <typeMapping>BigDecimal=Long</typeMapping>
+                            </typeMappings>
+                            <importMappings>
+                                <importMapping>org.threeten.bp.OffsetDateTime=java.time.Instant</importMapping>
+                                <importMapping>java.time.OffsetDateTime=java.time.Instant</importMapping>
+                                <importMapping>import java.math.BigDecimal=java.lang.Long</importMapping>
+                            </importMappings>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-authenticate-api</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/etc/swagger/api/authenticate-api.yaml</inputSpec>
+                            <output>${project.build.directory}/generated-sources/swagger</output>
+                            <modelPackage>com.icommerce.category.model</modelPackage>
+                            <generatorName>spring</generatorName>
+                            <addCompileSourceRoot>false</addCompileSourceRoot>
+                            <typeMappings>
+                                <typeMapping>OffsetDateTime=Instant</typeMapping>
+                                <typeMapping>BigDecimal=Long</typeMapping>
+                            </typeMappings>
+                            <importMappings>
+                                <importMapping>org.threeten.bp.OffsetDateTime=java.time.Instant</importMapping>
+                                <importMapping>java.time.OffsetDateTime=java.time.Instant</importMapping>
+                                <importMapping>import java.math.BigDecimal=java.lang.Long</importMapping>
+                            </importMappings>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-cart-api</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/etc/swagger/api/cart-api.yaml</inputSpec>
+                            <output>${project.build.directory}/generated-sources/swagger</output>
+                            <modelPackage>com.icommerce.category.model</modelPackage>
+                            <generatorName>spring</generatorName>
+                            <addCompileSourceRoot>false</addCompileSourceRoot>
+                            <typeMappings>
+                                <typeMapping>OffsetDateTime=Instant</typeMapping>
+                                <typeMapping>BigDecimal=Long</typeMapping>
+                            </typeMappings>
+                            <importMappings>
+                                <importMapping>org.threeten.bp.OffsetDateTime=java.time.Instant</importMapping>
+                                <importMapping>java.time.OffsetDateTime=java.time.Instant</importMapping>
+                                <importMapping>import java.math.BigDecimal=java.lang.Long</importMapping>
+                            </importMappings>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/swagger/src/main/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
