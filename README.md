@@ -1,5 +1,4 @@
 # Introduction 
-Hi! This is my home test for iCommerce project.
 
 # About the Project
 The project contain 4 services: 
